@@ -1,36 +1,15 @@
-#include <iostream>
-#include <vector>
-using namespace std;
-int display(vector<int> &arr)
-{
-    for (int i = 0; i < arr.size(); i++)
-    {
-        cout << arr[i] << " ";
-    }
-}
-int replaceElements(vector<int> &arr)
-{
-    int n = arr.size();
-    // vector<int> arr(n);
-
-    for (int i = 0; i < arr.size(); i++)
-    {
-        int max = 0;
-        for (int j = i + 1; j < arr.size(); j++)
-        {
-            if (arr[j] > max)
-            {
-                max = arr[j];
-            }
+class Solution {
+public:
+    vector<int> replaceElements(vector<int>& arr) {
+        int n =arr.size();
+        int max = arr[n-1];
+        arr[n-1] = -1;
+        for(int i=n-2;i>=0;i--){
+            int temp = arr[i];
+            arr[i]=max;
+            if(max<temp)
+                max= temp;
         }
-        arr[i] = max;
+        return arr;
     }
-    arr[arr.size() - 1] = -1;
-
-    display(arr);
-}
-int main()
-{
-    vector<int> arr{17, 18, 5, 4, 6, 1};
-    replaceElements(arr);
-}
+};
