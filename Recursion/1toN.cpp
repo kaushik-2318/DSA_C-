@@ -6,5 +6,5 @@ int print(int n){
     cout<<n<<endl;
 }
 int main(){
-    print(6);
+    print(7);
 }
